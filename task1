@@ -1,0 +1,13 @@
+import com.atlassian.jira.component.ComponentAccessor
+
+def issueManager = ComponentAccessor.issueManager
+
+def issue = issueManager.getIssueByCurrentKey("AT-1") 
+def fieldA = ComponentAccessor.getCustomFieldManager().getCustomFieldObjectByName("Field A")
+def fieldB = ComponentAccessor.getCustomFieldManager().getCustomFieldObjectByName("Field B")
+
+def A = issue.getCustomFieldValue(fieldA)
+def B = issue.getCustomFieldValue(fieldB)
+
+log.warn(A+B)
+return A + B
