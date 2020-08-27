@@ -1,0 +1,10 @@
+import com.atlassian.jira.component.ComponentAccessor
+import com.atlassian.jira.issue.comments.CommentManager
+
+def issueManager = ComponentAccessor.issueManager
+def issue = issueManager.getIssueByCurrentKey("AT-1")
+def commentManager = ComponentAccessor.getCommentManager()
+
+def B = commentManager.getLastComment (issue)
+
+issue.setDescription(B.body)
