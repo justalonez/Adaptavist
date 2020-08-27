@@ -1,0 +1,10 @@
+import com.atlassian.jira.component.ComponentAccessor
+
+def issueManager = ComponentAccessor.issueManager
+
+def issue = issueManager.getIssueByCurrentKey("AT-1") 
+
+def A = issue.getSubTaskObjects().size()
+
+log.warn("Total sub-task =" + A)
+return "Total sub-task =" + A
